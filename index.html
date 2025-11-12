@@ -18,28 +18,31 @@
             background: #e5ddd5;
             margin: 0;
             padding: 0;
-            height: 100vh;
-            overflow: hidden;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
         .whatsapp-container {
             display: flex;
-            height: 100vh;
+            min-height: 100vh;
             background: #e5ddd5;
             justify-content: center;
             align-items: center;
+            padding: 10px;
         }
 
         /* MAIN CHAT CONTAINER - SEM SIDEBAR */
         .chat-container {
             width: 100%;
             max-width: 800px;
-            height: 90vh;
+            height: 100vh;
+            max-height: calc(100vh - 20px);
             background: white;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             display: flex;
             flex-direction: column;
+            overflow: hidden;
         }
 
         .chat-header {
@@ -292,6 +295,93 @@
             border-radius: 12px;
             font-size: 0.9em;
             margin-left: 8px;
+        }
+
+        /* MEDIA QUERIES PARA MOBILE */
+        @media (max-width: 768px) {
+            .whatsapp-container {
+                padding: 5px;
+                align-items: stretch;
+            }
+
+            .chat-container {
+                height: 100vh;
+                max-height: 100vh;
+                border-radius: 0;
+                margin: 0;
+            }
+
+            .chat-header {
+                border-radius: 0;
+                padding: 15px;
+            }
+
+            .company-logo {
+                width: 45px;
+                height: 45px;
+                font-size: 16px;
+            }
+
+            .company-info h2 {
+                font-size: 18px;
+            }
+
+            .input-area {
+                padding: 15px;
+                position: sticky;
+                bottom: 0;
+                background: white;
+                border-top: 1px solid #e0e0e0;
+            }
+
+            .messages-area {
+                padding-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                overflow: hidden;
+            }
+
+            .chat-container {
+                height: 100vh;
+                max-height: 100vh;
+            }
+
+            .input-area {
+                padding: 12px 15px;
+                min-height: 60px;
+            }
+
+            .message-input {
+                padding: 12px 15px;
+                font-size: 16px; /* Evita zoom no iOS */
+            }
+
+            .send-button {
+                width: 45px;
+                height: 45px;
+                min-width: 45px;
+                min-height: 45px;
+            }
+
+            .message-content {
+                max-width: 85%;
+                font-size: 15px;
+                word-break: break-word;
+            }
+
+            /* Correção para links longos */
+            .message-content a {
+                word-break: break-all;
+                display: block;
+                margin: 5px 0;
+                padding: 8px;
+                background: rgba(18, 140, 126, 0.1);
+                border-radius: 8px;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -590,7 +680,9 @@ Os valores variam conforme:
                 response: `Um de nossos atendentes lhe responderá em breve. 
 
 Enquanto aguarda visite nosso instagram ou nosso site
-<a href="https://www.instagram.com/hzpersonalizados/" target="_blank">https://www.instagram.com/hzpersonalizados/</a>  
+
+<a href="https://www.instagram.com/hzpersonalizados/" target="_blank">Instagram HZ Personalizados</a>
+
 <a href="https://www.hzpersonalizados.com.br" target="_blank">www.hzpersonalizados.com.br</a>`
             },
             "0": {
@@ -742,7 +834,9 @@ ${menuDataRefined[previousSubmenu].options}`);
                             addMessage(`Um de nossos atendentes lhe responderá em breve. 
 
 Enquanto aguarda visite nosso instagram ou nosso site
-<a href="https://www.instagram.com/hzpersonalizados/" target="_blank">https://www.instagram.com/hzpersonalizados/</a>  
+
+<a href="https://www.instagram.com/hzpersonalizados/" target="_blank">Instagram HZ Personalizados</a>
+
 <a href="https://www.hzpersonalizados.com.br" target="_blank">www.hzpersonalizados.com.br</a>`);
                             currentSubmenu = null;
                             return;
@@ -891,4 +985,5 @@ Por favor, selecione uma das opções abaixo:
     </script>
 </body>
 </html>
+
 
