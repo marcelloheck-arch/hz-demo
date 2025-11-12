@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Business - HZ Personalizados</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: #e5ddd5;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .whatsapp-container {
+            display: flex;
+            height: 100vh;
+            background: #e5ddd5;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* MAIN CHAT CONTAINER - SEM SIDEBAR */
+        .chat-container {
+            width: 100%;
+            max-width: 800px;
+            height: 90vh;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #128c7e 0%, #075e54 100%);
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .company-logo {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        .company-info h2 {
+            margin: 0;
+            font-size: 22px;
+            font-weight: 500;
+        }
+
+        .company-info p {
+            margin: 5px 0 0 0;
+            opacity: 0.9;
+            font-size: 14px;
+        }
+
+        .messages-area {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="chat-bg" patternUnits="userSpaceOnUse" width="100" height="100"><rect width="100" height="100" fill="%23e5ddd5"/><circle cx="20" cy="20" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="80" cy="80" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23chat-bg)"/></svg>') repeat;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            animation: fadeInUp 0.3s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.bot {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .message.user {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .message-content {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 15px;
+            line-height: 1.4;
+            word-wrap: break-word;
+        }
+
+        .message.bot .message-content {
+            background: white;
+            color: #333;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-left: 10px;
+        }
+
+        .message.user .message-content {
+            background: #dcf8c6;
+            color: #333;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .bot-avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #128c7e 0%, #075e54 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .input-area {
+            padding: 20px;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .message-input {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 15px;
+            outline: none;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .send-button {
+            margin-left: 12px;
+            padding: 12px 16px;
+            background: #128c7e;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .send-button:hover {
+            background: #075e54;
+            transform: scale(1.05);
+        }
+
+        .menu-options {
+            background: white;
+            border-radius: 8px;
+            margin-top: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-item {
+            padding: 12px 16px;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .menu-item:first-child {
+            border-radius: 8px 8px 0 0;
+        }
+
+        .menu-item:hover {
+            background: #f8f9fa;
+        }
+
+        .menu-item strong {
+            color: #128c7e;
+            font-weight: 600;
+        }
+
+        .timestamp {
+            font-size: 11px;
+            opacity: 0.6;
+            margin-top: 4px;
+            text-align: right;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .whatsapp-container {
+                padding: 0;
+            }
+            
+            .chat-container {
+                width: 100%;
+                height: 100vh;
+                border-radius: 0;
+                max-width: none;
+            }
+            
+            .chat-header {
+                border-radius: 0;
+            }
+        }
+
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            padding: 8px 16px;
+            background: white;
+            border-radius: 18px;
+            margin-left: 50px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .typing-dots {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .typing-dots span {
+            width: 8px;
+            height: 8px;
+            background: #999;
+            border-radius: 50%;
+            animation: typing 1.4s infinite ease-in-out;
+        }
+
+        .typing-dots span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dots span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%, 60%, 100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            30% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+        }
+
+        .product-highlight {
+            background: linear-gradient(135deg, #128c7e 0%, #075e54 100%);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.9em;
+            margin-left: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="whatsapp-container">
+        <!-- MAIN CHAT - SEM SIDEBAR -->
+        <div class="chat-container">
+            <!-- Header do Chat -->
+            <div class="chat-header">
+                <div class="company-logo">
+                    HZ
+                </div>
+                <div class="company-info">
+                    <h2>HZ Personalizados</h2>
+                    <p>
+                        <i class="fas fa-circle" style="color: #4fc3f7; font-size: 10px;"></i>
+                        Online - Produtos Personalizados
+                    </p>
+                </div>
+            </div>
+
+            <!-- Área de Mensagens -->
+            <div class="messages-area" id="messagesArea">
+                <!-- Mensagens aparecerão aqui -->
+            </div>
+
+            <!-- Área de Input -->
+            <div class="input-area">
+                <input type="text" 
+                       class="message-input" 
+                       id="messageInput" 
+                       placeholder="Digite sua mensagem..."
+                       onkeypress="handleKeyPress(event)">
+                <button class="send-button" onclick="sendUserMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentTime = new Date();
+        let currentSubmenu = null;
+        let previousSubmenu = null;
+
+        // DADOS DOS MENUS REFINADOS - SINCRONIZADOS COM O BOT
+        const menuDataRefined = {
+            "1": {
+                title: "📔 AGENDAS E CADERNOS",
+                options: `1️⃣ - Quais os modelos e valores
+2️⃣ - O que posso personalizar
+0️⃣ - Falar com um atendente`,
+                submenu: {
+                    "1": `📔 *AGENDAS E CADERNOS PERSONALIZADOS*
+
+*🌟 Padrão Clean - R$ 69,90*
+✅ Capa personalizada com tema à sua escolha
+✅ Laminação Brilho ou Fosca
+✅ Diversos miolos disponíveis (parte interna)
+✅ Elástico Roliço
+✅ WireO nas cores coordenadas
+
+*💎 Padrão Deluxe - R$ 99,90*
+✅ Capa personalizada com tema à sua escolha
+✅ Laminação Brilho, Fosca ou Holográfica
+✅ Diversos miolos disponíveis (parte interna)  
+✅ Elástico combinando com o tema
+✅ Passante decorativo
+✅ WireO nas cores coordenadas
+✅ Tassel decorativo
+✅ Cantoneiras para proteção
+🎁 *BRINDE:* Linda bolsa para proteger sua agenda
+
+📖 *CADERNOS 15x21*
+
+*📚 100 folhas (200 páginas) - R$ 59,90*
+✅ Capa personalizada com seu tema
+✅ Miolo pautado padrão  
+✅ WireO nas cores coordenadas
+
+*📚 200 folhas (400 páginas) - R$ 69,90*
+✅ Capa personalizada com seu tema
+✅ Miolo pautado padrão
+✅ WireO nas cores coordenadas`,
+                    "2": `🎨 *PERSONALIZAÇÃO COMPLETA*
+
+✅ Qualquer imagem, foto ou design
+✅ Logos e marcas empresariais  
+✅ Temas personalizados (aniversário, casamento, formatura)
+✅ Cores e estilos à sua escolha
+
+📝 *Observação:* A parte interna (miolo) das agendas não pode ser personalizada, porém podemos criar um modelo específico para sua necessidade (consultar valores).`,
+                    "0": "👨‍💼 Em breve um de nossos atendentes irá lhe responder!"
+                }
+            },
+            "2": {
+                title: "☕ COPOS E CANECAS",
+                options: `1️⃣ - Quais os modelos e valores
+2️⃣ - O que posso personalizar
+0️⃣ - Falar com um atendente`,
+                submenu: {
+                    "1": `☕ *COPOS E CANECAS PERSONALIZADOS*
+
+*🥤 Acrílicos*
+✅ Toda linha de copos acrílicos
+✅ Personalização em Silk ou Impressão Digital
+✅ Long Drink, Twister, Champanhe, Gin e muito mais
+
+*🍷 Vidro*
+✅ Taças, Tulipas, Shot, Chopp
+✅ Personalização em sublimação
+✅ Qualidade premium garantida
+
+*☕ Canecas*
+✅ Canecas de Café e Xícaras em Cerâmica
+✅ Personalização em sublimação
+✅ A partir de R$ 45,00
+
+💰 *Para grandes quantidades, consulte condições especiais!*`,
+                    "2": `🎨 *PERSONALIZAÇÃO TOTAL*
+
+✅ Qualquer tipo de arte ou design
+✅ Logos e marcas empresariais
+✅ Fotos e imagens pessoais
+✅ Mensagens e frases especiais
+✅ Cores e temas personalizados`,
+                    "0": "👨‍💼 Em breve um de nossos atendentes irá lhe responder!"
+                }
+            },
+            "3": {
+                title: "📦 CAIXAS CARTONADAS",
+                options: `1️⃣ - Como são as caixas
+2️⃣ - Tamanhos e valores
+0️⃣ - Falar com um atendente`,
+                submenu: {
+                    "1": `📦 *CAIXAS CARTONADAS PERSONALIZADAS*
+
+🎁 *Perfeitas para presentear ou embalar produtos com sofisticação*
+
+✨ *Características:*
+✅ Material cartonado de alta qualidade
+✅ Fechamento com fita de cetim elegante
+✅ Personalização do nome ou marca
+✅ Acabamento requintado e resistente
+✅ Design elegante e impactante
+
+🎉 *Ideais para:*
+✅ Casamentos e eventos
+✅ Aniversários especiais
+✅ Embalagem de produtos premium
+✅ Brindes corporativos`,
+                    "2": `📏 *TAMANHOS E VALORES PERSONALIZADOS*
+
+✅ Todas as caixas são feitas sob medida
+✅ Tamanho personalizado conforme sua necessidade
+✅ Valores variam conforme:
+   • Dimensões desejadas
+   • Cores e acabamentos
+   • Adereços e detalhes
+
+💰 *Para orçamento personalizado, fale com nossos consultores!*`,
+                    "0": "👨‍💼 Em breve um de nossos atendentes irá lhe responder!"
+                }
+            },
+            "4": {
+                title: "🖨️ GRÁFICA",
+                options: `1️⃣ - Serviços disponíveis
+2️⃣ - Valores e quantidades
+0️⃣ - Falar com um atendente`,
+                submenu: {
+                    "1": `🖨️ *SERVIÇOS GRÁFICOS COMPLETOS*
+
+📄 *Para seu negócio:*
+✅ Cartões de visita
+✅ Panfletos e folhetos
+✅ Banners e displays
+✅ Adesivos personalizados
+✅ Material publicitário
+✅ Impressões de qualidade
+
+🎯 *Divulgue seu negócio com estilo!*`,
+                    "2": `💰 *VALORES PERSONALIZADOS*
+
+Os valores variam conforme:
+✅ Tipo de produto
+✅ Quantidade (tiragem)
+✅ Material utilizado
+✅ Acabamento desejado
+
+📞 *Para orçamento personalizado, chame um de nossos consultores!*`,
+                    "0": "👨‍💼 Em breve um de nossos atendentes irá lhe responder!"
+                }
+            },
+            "5": {
+                title: "🎁 BRINDES CORPORATIVOS",
+                options: `1️⃣ - O que são os brindes
+2️⃣ - Valores e quantidades
+0️⃣ - Falar com um atendente`,
+                submenu: {
+                    "1": `🎁 *BRINDES CORPORATIVOS ESPECIAIS*
+
+✨ *Lembrancinhas personalizadas para:*
+✅ Sua empresa e marca
+✅ Aniversários corporativos
+✅ Datas comemorativas
+✅ Eventos especiais
+✅ Momentos únicos
+
+💡 *Traga sua ideia e nós realizamos!*
+Criamos conforme seu gosto e realidade da empresa.`,
+                    "2": `💰 *VALORES PERSONALIZADOS*
+
+Os valores variam conforme:
+✅ Tipo de produto escolhido
+✅ Quantidade desejada (tiragem)
+✅ Material utilizado
+✅ Personalização aplicada
+
+📞 *Para orçamento personalizado, chame um de nossos consultores!*`,
+                    "0": "👨‍💼 Em breve um de nossos atendentes irá lhe responder!"
+                }
+            },
+            "6": {
+                title: "👕 VESTUÁRIO",
+                options: `1️⃣ - Produtos disponíveis
+2️⃣ - Valores e quantidades
+0️⃣ - Falar com um atendente`,
+                submenu: {
+                    "1": `👕 *VESTUÁRIO PERSONALIZADO*
+
+👔 *Linha completa:*
+✅ Camisetas personalizadas
+✅ Moletons e casacos
+✅ Bonés e acessórios
+✅ Meias personalizadas
+✅ Peças íntimas
+✅ E muito mais!
+
+🎯 *Perfeito para:*
+✅ Empresas e uniformes
+✅ Times e grupos
+✅ Viagens e eventos
+✅ Sua imaginação sem limites!`,
+                    "2": `💰 *VALORES E OPÇÕES*
+
+Os valores variam conforme:
+✅ Tipo de produto
+✅ Quantidade desejada
+✅ Material escolhido
+
+💡 *Opção especial:*
+✅ Você pode trazer seu material
+✅ Nós personalizamos para você
+✅ Valores ainda mais especiais!
+
+📞 *Para orçamento personalizado, chame nossos consultores!*`,
+                    "0": "👨‍💼 Em breve um de nossos atendentes irá lhe responder!"
+                }
+            },
+            "7": {
+                title: "📝 PAPELARIA PERSONALIZADA",
+                options: `1️⃣ - O que é papelaria personalizada
+2️⃣ - Valores e quantidades  
+0️⃣ - Falar com um atendente`,
+                submenu: {
+                    "1": `📝 *PAPELARIA PERSONALIZADA PARA EVENTOS*
+
+🎉 *Especializados em:*
+✅ Aniversários especiais
+✅ Casamentos e bodas
+✅ Eventos religiosos (batizado, primeira comunhão)
+✅ Formaturas e celebrações
+
+📄 *Produtos:*
+✅ Convites elegantes
+✅ Convites para padrinhos
+✅ Save the date
+✅ Cardápios personalizados
+✅ E toda papelaria do seu evento!
+
+✨ *Criamos e produzimos tudo aqui!*`,
+                    "2": `💰 *VALORES PERSONALIZADOS*
+
+Os valores variam conforme:
+✅ Tipo de produto
+✅ Quantidade (tiragem)
+✅ Material utilizado
+✅ Acabamento e detalhes
+
+📞 *Para orçamento personalizado, chame um de nossos consultores!*`,
+                    "0": "👨‍💼 Em breve um de nossos atendentes irá lhe responder!"
+                }
+            },
+            "8": {
+                title: "👨‍💼 FALAR COM ATENDENTE",
+                response: "👨‍💼 Em breve, um de nossos consultores irá lhe responder!"
+            },
+            "0": {
+                title: "📋 CATÁLOGO GERAL",
+                response: `📋 *CATÁLOGO HZ PERSONALIZADOS*
+
+Enviaremos nosso catálogo completo em PDF!
+
+📧 *Contém:*
+✅ Todos os produtos disponíveis
+✅ Galeria de trabalhos realizados  
+✅ Tabela de preços atualizada
+✅ Informações de contato
+
+📲 O arquivo será enviado em instantes!`
+            }
+        };
+
+        // Função para adicionar mensagens
+        function addMessage(text, sender = 'bot', showTimestamp = true) {
+            const messagesArea = document.getElementById('messagesArea');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+            
+            const currentTime = new Date();
+            const timeStr = currentTime.toLocaleTimeString('pt-BR', { 
+                hour: '2-digit', 
+                minute: '2-digit' 
+            });
+
+            let messageContent = '';
+            if (sender === 'bot') {
+                messageContent = `
+                    <div class="bot-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        ${text.replace(/\n/g, '<br>')}
+                        ${showTimestamp ? `<div class="timestamp">${timeStr}</div>` : ''}
+                    </div>
+                `;
+            } else {
+                messageContent = `
+                    <div class="message-content">
+                        ${text.replace(/\n/g, '<br>')}
+                        ${showTimestamp ? `<div class="timestamp">${timeStr}</div>` : ''}
+                    </div>
+                `;
+            }
+            
+            messageDiv.innerHTML = messageContent;
+            messagesArea.appendChild(messageDiv);
+            messagesArea.scrollTop = messagesArea.scrollHeight;
+        }
+
+        // Função para mostrar indicador de digitação
+        function showTyping() {
+            const messagesArea = document.getElementById('messagesArea');
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'typing-indicator';
+            typingDiv.id = 'typing-indicator';
+            typingDiv.innerHTML = `
+                <div class="typing-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            `;
+            messagesArea.appendChild(typingDiv);
+            messagesArea.scrollTop = messagesArea.scrollHeight;
+        }
+
+        // Função para remover indicador de digitação
+        function hideTyping() {
+            const typingIndicator = document.getElementById('typing-indicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+
+        // Função para processar mensagens do usuário
+        function processMessage(message) {
+            const msg = message.trim().toLowerCase();
+            const normalizedOption = message.trim();
+
+            // Verifica se é uma opção numérica válida
+            if (/^[0-8]$/.test(normalizedOption)) {
+                handleMenuOption(normalizedOption);
+                return;
+            }
+
+            // Comandos especiais
+            if (msg.includes('menu') || msg.includes('opções') || msg.includes('opcoes') || msg === 'oi' || msg === 'olá') {
+                showMainMenu();
+                return;
+            }
+
+            // Resposta padrão
+            setTimeout(() => {
+                hideTyping();
+                addMessage(`Obrigado pela mensagem! 😊
+
+Para melhor atendê-lo, digite o número da opção desejada do nosso menu de produtos.
+
+📋 *Nossos produtos e serviços:*
+
+1️⃣ - Agendas e Cadernos
+2️⃣ - Copos e Canecas
+3️⃣ - Caixas Cartonadas
+4️⃣ - Gráfica
+5️⃣ - Brindes Corporativos
+6️⃣ - Vestuário
+7️⃣ - Papelaria Personalizada
+8️⃣ - Falar com um atendente
+0️⃣ - Receber catálogo geral
+
+*Digite o número da opção desejada* 👆`);
+            }, 1500);
+        }
+
+        // Função para lidar com opções do menu
+        function handleMenuOption(option) {
+            console.log('Processando opção:', option);
+
+            showTyping();
+
+            // Sistema de navegação pós-resposta
+            if (currentSubmenu === 'navigation') {
+                setTimeout(() => {
+                    hideTyping();
+                    switch(option) {
+                        case '1':
+                            // Voltar ao menu anterior
+                            if (previousSubmenu) {
+                                currentSubmenu = previousSubmenu;
+                                addMessage(`${menuDataRefined[previousSubmenu].title}
+
+${menuDataRefined[previousSubmenu].options}`);
+                            } else {
+                                showMainMenu();
+                            }
+                            return;
+                        case '2':
+                            // Voltar ao menu principal
+                            showMainMenu();
+                            return;
+                        case '3':
+                            // Falar com atendente
+                            addMessage(`👨‍💼 *Transferindo para atendente...*
+
+Obrigado por entrar em contato! 😊`);
+                            currentSubmenu = null;
+                            return;
+                        default:
+                            addMessage("❌ Opção inválida. Escolha 1, 2 ou 3.");
+                            return;
+                    }
+                }, 1200);
+                return;
+            }
+
+            // Se estamos em um submenu
+            if (currentSubmenu && menuDataRefined[currentSubmenu] && menuDataRefined[currentSubmenu].submenu && 
+                menuDataRefined[currentSubmenu].submenu[option]) {
+                
+                setTimeout(() => {
+                    hideTyping();
+                    previousSubmenu = currentSubmenu;
+                    const resposta = menuDataRefined[currentSubmenu].submenu[option];
+
+                    // Verificar se é chamada direta para atendente
+                    if (option === '0') {
+                        addMessage(`👨‍💼 *Transferindo para atendente...*
+
+Obrigado por entrar em contato! 😊`);
+                        currentSubmenu = null;
+                        return;
+                    }
+
+                    addMessage(resposta);
+                    
+                    // Após a resposta, mostrar navegação
+                    setTimeout(() => {
+                        addMessage(`*Como você gostaria de prosseguir?*
+
+1️⃣ Voltar ao menu ${menuDataRefined[previousSubmenu].title}
+2️⃣ Voltar ao menu Principal
+3️⃣ Falar com atendente
+
+*Digite a opção desejada* 👆`);
+                        currentSubmenu = 'navigation';
+                    }, 1000);
+                }, 1500);
+                return;
+            }
+
+            // Menu principal
+            if (menuDataRefined[option]) {
+                setTimeout(() => {
+                    hideTyping();
+                    if (menuDataRefined[option].response) {
+                        // Opções diretas (8 e 0)
+                        addMessage(menuDataRefined[option].response);
+
+                        // Para opção 8 (falar com atendente), não precisa navegação
+                        if (option === '8') {
+                            currentSubmenu = null;
+                            return;
+                        }
+
+                        // Para outras respostas diretas, mostrar navegação simplificada
+                        setTimeout(() => {
+                            addMessage(`*Como você gostaria de prosseguir?*
+
+2️⃣ Voltar ao menu Principal
+3️⃣ Falar com atendente
+
+*Digite a opção desejada* 👆`);
+                            currentSubmenu = 'navigation';
+                            previousSubmenu = null;
+                        }, 1500);
+
+                    } else if (menuDataRefined[option].submenu) {
+                        // Opções com submenu
+                        currentSubmenu = option;
+                        previousSubmenu = null;
+                        addMessage(`${menuDataRefined[option].title}
+
+${menuDataRefined[option].options}`);
+                    }
+                }, 1200);
+            } else {
+                setTimeout(() => {
+                    hideTyping();
+                    addMessage("❌ Opção inválida. Por favor, selecione uma das opções disponíveis no menu.");
+                }, 1000);
+            }
+        }
+
+        // Função para mostrar menu principal
+        function showMainMenu() {
+            currentSubmenu = null;
+            showTyping();
+            setTimeout(() => {
+                hideTyping();
+                addMessage(`Olá! 😊 Seja bem-vindo à *HZ Personalizados*!
+
+Somos especializados em produtos personalizados de alta qualidade.
+
+Por favor, selecione uma das opções abaixo:
+
+1️⃣ - Agendas e Cadernos
+2️⃣ - Copos e Canecas
+3️⃣ - Caixas Cartonadas
+4️⃣ - Gráfica
+5️⃣ - Brindes Corporativos
+6️⃣ - Vestuário
+7️⃣ - Papelaria Personalizada
+8️⃣ - Falar com um atendente
+0️⃣ - Receber catálogo geral
+
+*Digite o número da opção desejada* 👆`);
+            }, 1000);
+        }
+
+        // Função para enviar mensagem do usuário
+        function sendUserMessage() {
+            const input = document.getElementById('messageInput');
+            const message = input.value.trim();
+            
+            if (message === '') return;
+            
+            addMessage(message, 'user');
+            input.value = '';
+            
+            showTyping();
+            setTimeout(() => {
+                hideTyping();
+                processMessage(message);
+            }, 800);
+        }
+
+        // Função para lidar com Enter
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendUserMessage();
+            }
+        }
+
+        // Inicializar chat
+        window.onload = function() {
+            setTimeout(() => {
+                showMainMenu();
+            }, 1000);
+        };
+    </script>
+</body>
+</html>
