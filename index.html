@@ -587,7 +587,11 @@ Os valores variam conforme:
             },
             "8": {
                 title: "👨‍💼 FALAR COM ATENDENTE",
-                response: "Um de nossos atendentes lhe responderá em breve. Enquanto aguarda, visite nosso Instagram https://www.instagram.com/hzpersonalizados/ ou nosso site www.hzpersonalizados.com.br"
+                response: `Um de nossos atendentes lhe responderá em breve. 
+
+Enquanto aguarda visite nosso instagram ou nosso site
+<a href="https://www.instagram.com/hzpersonalizados/" target="_blank">https://www.instagram.com/hzpersonalizados/</a>  
+<a href="https://www.hzpersonalizados.com.br" target="_blank">www.hzpersonalizados.com.br</a>`
             },
             "0": {
                 title: "📋 CATÁLOGO GERAL",
@@ -735,7 +739,11 @@ ${menuDataRefined[previousSubmenu].options}`);
                             return;
                         case '3':
                             // Falar com atendente
-                            addMessage(`Um de nossos atendentes lhe responderá em breve. Enquanto aguarda, visite nosso Instagram https://www.instagram.com/hzpersonalizados/ ou nosso site www.hzpersonalizados.com.br`);
+                            addMessage(`Um de nossos atendentes lhe responderá em breve. 
+
+Enquanto aguarda visite nosso instagram ou nosso site
+<a href="https://www.instagram.com/hzpersonalizados/" target="_blank">https://www.instagram.com/hzpersonalizados/</a>  
+<a href="https://www.hzpersonalizados.com.br" target="_blank">www.hzpersonalizados.com.br</a>`);
                             currentSubmenu = null;
                             return;
                         default:
@@ -883,3 +891,4 @@ Por favor, selecione uma das opções abaixo:
     </script>
 </body>
 </html>
+
