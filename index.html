@@ -314,7 +314,7 @@
             </div>
 
             <!-- Área de Mensagens -->
-            <div class="messages-area" id="messagesArea">
+            <div class="messages-area" id="messagesArea" style="padding-bottom: 120px !important;">
                 <!-- Mensagens aparecerão aqui -->
             </div>
 
@@ -639,7 +639,7 @@ Enviaremos nosso catálogo completo em PDF!
             
             messageDiv.innerHTML = messageContent;
             messagesArea.appendChild(messageDiv);
-            messagesArea.scrollTop = messagesArea.scrollHeight;
+            messagesArea.scrollTop = messagesArea.scrollHeight + 100; setTimeout(() => { messagesArea.scrollTop = messagesArea.scrollHeight + 100; }, 100);
         }
 
         // Função para mostrar indicador de digitação
@@ -656,7 +656,7 @@ Enviaremos nosso catálogo completo em PDF!
                 </div>
             `;
             messagesArea.appendChild(typingDiv);
-            messagesArea.scrollTop = messagesArea.scrollHeight;
+            messagesArea.scrollTop = messagesArea.scrollHeight + 100; setTimeout(() => { messagesArea.scrollTop = messagesArea.scrollHeight + 100; }, 100);
         }
 
         // Função para remover indicador de digitação
