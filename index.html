@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -314,12 +314,12 @@
             </div>
 
             <!-- Área de Mensagens -->
-            <div class="messages-area" id="messagesArea" style="padding-bottom: 120px !important;">
+            <div class="messages-area" id="messagesArea">
                 <!-- Mensagens aparecerão aqui -->
             </div>
 
             <!-- Área de Input -->
-            <div class="input-area" style="position: fixed !important; bottom: 0 !important; left: 0 !important; right: 0 !important; z-index: 99999 !important; background: white !important; padding: 15px !important; border-top: 2px solid #ccc !important;">
+            <div class="input-area">
                 <input type="text" 
                        class="message-input" 
                        id="messageInput" 
@@ -384,7 +384,7 @@
 ✅ Cores e estilos à sua escolha
 
 📝 *Observação:* A parte interna (miolo) das agendas não pode ser personalizada, porém podemos criar um modelo específico para sua necessidade (consultar valores).`,
-                    "0": "👨‍💼 Em breve um de nossos atendentes irá lhe responder!"
+                    "0": "👨‍💼 Um de nossos atendentes lhe responderá em breve. Enquanto aguarda, visite nosso Instagram https://www.instagram.com/hzpersonalizados/ ou nosso site www.hzpersonalizados.com.br"
                 }
             },
             "2": {
@@ -418,7 +418,7 @@
 ✅ Fotos e imagens pessoais
 ✅ Mensagens e frases especiais
 ✅ Cores e temas personalizados`,
-                    "0": "👨‍💼 Em breve um de nossos atendentes irá lhe responder!"
+                    "0": "👨‍💼 Um de nossos atendentes lhe responderá em breve. Enquanto aguarda, visite nosso Instagram https://www.instagram.com/hzpersonalizados/ ou nosso site www.hzpersonalizados.com.br"
                 }
             },
             "3": {
@@ -453,7 +453,7 @@
    • Adereços e detalhes
 
 💰 *Para orçamento personalizado, fale com nossos consultores!*`,
-                    "0": "👨‍💼 Em breve um de nossos atendentes irá lhe responder!"
+                    "0": "👨‍💼 Um de nossos atendentes lhe responderá em breve. Enquanto aguarda, visite nosso Instagram https://www.instagram.com/hzpersonalizados/ ou nosso site www.hzpersonalizados.com.br"
                 }
             },
             "4": {
@@ -482,7 +482,7 @@ Os valores variam conforme:
 ✅ Acabamento desejado
 
 📞 *Para orçamento personalizado, chame um de nossos consultores!*`,
-                    "0": "👨‍💼 Em breve um de nossos atendentes irá lhe responder!"
+                    "0": "👨‍💼 Um de nossos atendentes lhe responderá em breve. Enquanto aguarda, visite nosso Instagram https://www.instagram.com/hzpersonalizados/ ou nosso site www.hzpersonalizados.com.br"
                 }
             },
             "5": {
@@ -511,7 +511,7 @@ Os valores variam conforme:
 ✅ Personalização aplicada
 
 📞 *Para orçamento personalizado, chame um de nossos consultores!*`,
-                    "0": "👨‍💼 Em breve um de nossos atendentes irá lhe responder!"
+                    "0": "👨‍💼 Um de nossos atendentes lhe responderá em breve. Enquanto aguarda, visite nosso Instagram https://www.instagram.com/hzpersonalizados/ ou nosso site www.hzpersonalizados.com.br"
                 }
             },
             "6": {
@@ -548,7 +548,7 @@ Os valores variam conforme:
 ✅ Valores ainda mais especiais!
 
 📞 *Para orçamento personalizado, chame nossos consultores!*`,
-                    "0": "👨‍💼 Em breve um de nossos atendentes irá lhe responder!"
+                    "0": "👨‍💼 Um de nossos atendentes lhe responderá em breve. Enquanto aguarda, visite nosso Instagram https://www.instagram.com/hzpersonalizados/ ou nosso site www.hzpersonalizados.com.br"
                 }
             },
             "7": {
@@ -582,7 +582,7 @@ Os valores variam conforme:
 ✅ Acabamento e detalhes
 
 📞 *Para orçamento personalizado, chame um de nossos consultores!*`,
-                    "0": "👨‍💼 Em breve um de nossos atendentes irá lhe responder!"
+                    "0": "👨‍💼 Um de nossos atendentes lhe responderá em breve. Enquanto aguarda, visite nosso Instagram https://www.instagram.com/hzpersonalizados/ ou nosso site www.hzpersonalizados.com.br"
                 }
             },
             "8": {
@@ -639,7 +639,7 @@ Enviaremos nosso catálogo completo em PDF!
             
             messageDiv.innerHTML = messageContent;
             messagesArea.appendChild(messageDiv);
-            messagesArea.scrollTop = messagesArea.scrollHeight + 100; setTimeout(() => { messagesArea.scrollTop = messagesArea.scrollHeight + 100; }, 100);
+            messagesArea.scrollTop = messagesArea.scrollHeight;
         }
 
         // Função para mostrar indicador de digitação
@@ -656,7 +656,7 @@ Enviaremos nosso catálogo completo em PDF!
                 </div>
             `;
             messagesArea.appendChild(typingDiv);
-            messagesArea.scrollTop = messagesArea.scrollHeight + 100; setTimeout(() => { messagesArea.scrollTop = messagesArea.scrollHeight + 100; }, 100);
+            messagesArea.scrollTop = messagesArea.scrollHeight;
         }
 
         // Função para remover indicador de digitação
