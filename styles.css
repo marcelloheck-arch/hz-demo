@@ -449,3 +449,44 @@
         font-size: 12px;
     }
 }
+ 
+ / *   = = = = =   C O R R E Ç Õ E S   M O B I L E   A P E N A S   = = = = =   * / 
+ 
+ / *   C o n t a i n e r   p r i n c i p a l   m o b i l e   * / 
+ @ m e d i a   ( m a x - w i d t h :   4 8 0 p x )   { 
+         . p h o n e - c o n t a i n e r   { 
+                 h e i g h t :   1 0 0 v h   ! i m p o r t a n t ; 
+                 h e i g h t :   1 0 0 d v h   ! i m p o r t a n t ; 
+                 p o s i t i o n :   r e l a t i v e   ! i m p o r t a n t ; 
+         } 
+         
+         . m e s s a g e s - c o n t a i n e r   { 
+                 p a d d i n g - b o t t o m :   8 0 p x   ! i m p o r t a n t ; 
+                 o v e r f l o w - y :   a u t o   ! i m p o r t a n t ; 
+                 - w e b k i t - o v e r f l o w - s c r o l l i n g :   t o u c h   ! i m p o r t a n t ; 
+         } 
+         
+         . i n p u t - c o n t a i n e r   { 
+                 p o s i t i o n :   f i x e d   ! i m p o r t a n t ; 
+                 b o t t o m :   0   ! i m p o r t a n t ; 
+                 l e f t :   0   ! i m p o r t a n t ; 
+                 r i g h t :   0   ! i m p o r t a n t ; 
+                 z - i n d e x :   1 0 0 0   ! i m p o r t a n t ; 
+                 b a c k g r o u n d :   w h i t e   ! i m p o r t a n t ; 
+                 b o r d e r - t o p :   1 p x   s o l i d   # d d d   ! i m p o r t a n t ; 
+                 p a d d i n g :   1 0 p x   1 5 p x   ! i m p o r t a n t ; 
+         } 
+         
+         . m e s s a g e - i n p u t   { 
+                 f o n t - s i z e :   1 6 p x   ! i m p o r t a n t ; 
+                 p a d d i n g :   1 2 p x   1 5 p x   ! i m p o r t a n t ; 
+                 b o r d e r - r a d i u s :   2 0 p x   ! i m p o r t a n t ; 
+         } 
+         
+         . s e n d - b u t t o n   { 
+                 m i n - w i d t h :   4 5 p x   ! i m p o r t a n t ; 
+                 m i n - h e i g h t :   4 5 p x   ! i m p o r t a n t ; 
+                 f o n t - s i z e :   1 8 p x   ! i m p o r t a n t ; 
+         } 
+ }  
+ 
