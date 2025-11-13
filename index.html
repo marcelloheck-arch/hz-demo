@@ -499,7 +499,11 @@ Para fazer um orçamento personalizado, chame um de nossos consultores.`,
             },
             "8": {
                 title: "👨‍💼 FALAR COM ATENDENTE",
-                response: "👨‍💼 Em breve, um de nossos consultores irá lhe responder!"
+                response: `👨‍💼 Em breve um de nossos Consultores irá lhe atender!
+
+Enquanto espera que tal visitar nosso Instagram ou nosso Site:
+📱 https://www.instagram.com/hzpersonalizados/
+🌐 https://hzpersonalizados.com.br`
             },
             "0": {
                 title: "📋 CATÁLOGO GERAL",
@@ -690,9 +694,11 @@ Enquanto espera que tal visitar nosso Instagram ou nosso Site:
 
                     // Verificar se é chamada direta para atendente
                     if (option === '0') {
-                        addMessage(`👨‍💼 *Transferindo para atendente...*
+                        addMessage(`👨‍💼 Em breve um de nossos Consultores irá lhe atender!
 
-Obrigado por entrar em contato! 😊`);
+Enquanto espera que tal visitar nosso Instagram ou nosso Site:
+📱 https://www.instagram.com/hzpersonalizados/
+🌐 https://hzpersonalizados.com.br`);
                         currentSubmenu = null;
                         return;
                     }
