@@ -1,0 +1,24 @@
+{
+  "name": "hz-personalizados-bot-demo",
+  "version": "1.0.0",
+  "description": "Demonstração interativa do Bot WhatsApp da HZ Personalizados",
+  "main": "index.html",
+  "scripts": {
+    "dev": "serve -s . -l 3000",
+    "build": "echo 'Build complete - Static site ready'",
+    "start": "serve -s . -l 3000"
+  },
+  "keywords": [
+    "whatsapp",
+    "bot",
+    "hz-personalizados",
+    "demo",
+    "chatbot",
+    "vercel"
+  ],
+  "author": "Marcelo Heck",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.0.0"
+  }
+}

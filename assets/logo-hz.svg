@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" style="background: white;">
-  <!-- Logo HZ Personalizados baseada na imagem fornecida -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <!-- Logo HZ Personalizados - Fundo Transparente -->
   <defs>
     <style>
       .logo-text { 
@@ -14,9 +14,6 @@
       }
     </style>
   </defs>
-  
-  <!-- Fundo branco -->
-  <rect width="400" height="300" fill="white"/>
   
   <!-- Borda -->
   <rect x="20" y="20" width="360" height="260" fill="none" stroke="#000" stroke-width="4"/>

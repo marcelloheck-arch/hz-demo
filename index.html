@@ -54,14 +54,12 @@
         .company-logo {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
+            background: white;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
+            padding: 5px;
             margin-right: 15px;
         }
 
@@ -243,19 +241,19 @@
 
         .typing-indicator {
             display: flex;
-            align-items: center;
-            padding: 8px 16px;
-            background: white;
-            border-radius: 18px;
-            margin-left: 50px;
+            align-items: flex-start;
             margin-bottom: 15px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .typing-dots {
             display: flex;
             align-items: center;
             gap: 4px;
+            padding: 12px 16px;
+            background: white;
+            border-radius: 18px;
+            margin-left: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .typing-dots span {
@@ -301,7 +299,7 @@
         <div class="chat-container">
             <!-- Header do Chat -->
             <div class="chat-header">
-                <div class="company-logo"><img src="assets/logo-hz.svg" alt="HZ Personalizados" style="width: 35px; height: 35px; object-fit: contain;"></div>
+                <div class="company-logo"><img src="assets/logo-hz.svg" alt="HZ Personalizados" style="width: 50px; height: 50px; object-fit: contain;"></div>
                 <div class="company-info">
                     <h2>HZ Personalizados</h2>
                     <p>
@@ -311,12 +309,12 @@
                 </div>
             </div>
 
-            <!-- �rea de Mensagens -->
+            <!-- �rea de Mensagens -->
             <div class="messages-area" id="messagesArea">
-                <!-- Mensagens aparecer�o aqui -->
+                <!-- Mensagens aparecer�o aqui -->
             </div>
 
-            <!-- �rea de Input -->
+            <!-- �rea de Input -->
             <div class="input-area">
                 <input type="text" 
                        class="message-input" 
@@ -338,272 +336,272 @@
         // DADOS DOS MENUS REFINADOS - SINCRONIZADOS COM O BOT
         const menuDataRefined = {
             "1": {
-                title: "?? AGENDAS E CADERNOS",
-                options: `1?? - Quais os modelos e valores
-2?? - O que posso personalizar
-0?? - Falar com um atendente`,
+                title: "📔 AGENDAS E CADERNOS",
+                options: `1️⃣ - Quais os modelos e valores
+2️⃣ - O que posso personalizar
+0️⃣ - Falar com um atendente`,
                 submenu: {
-                    "1": `?? *AGENDAS E CADERNOS PERSONALIZADOS*
+                    "1": `📔 *AGENDAS E CADERNOS PERSONALIZADOS*
 
-*?? Padr�o Clean - R$ 69,90*
-? Capa personalizada com tema � sua escolha
-? Lamina��o Brilho ou Fosca
-? Diversos miolos dispon�veis (parte interna)
-? El�stico Roli�o
-? WireO nas cores coordenadas
+*🌟 Padrão Clean - R$ 69,90*
+✅ Capa personalizada com tema à sua escolha
+✅ Laminação Brilho ou Fosca
+✅ Diversos miolos disponíveis (parte interna)
+✅ Elástico Roliço
+✅ WireO nas cores coordenadas
 
-*?? Padr�o Deluxe - R$ 99,90*
-? Capa personalizada com tema � sua escolha
-? Lamina��o Brilho, Fosca ou Hologr�fica
-? Diversos miolos dispon�veis (parte interna)  
-? El�stico combinando com o tema
-? Passante decorativo
-? WireO nas cores coordenadas
-? Tassel decorativo
-? Cantoneiras para prote��o
-?? *BRINDE:* Linda bolsa para proteger sua agenda
+*💎 Padrão Deluxe - R$ 99,90*
+✅ Capa personalizada com tema à sua escolha
+✅ Laminação Brilho, Fosca ou Holográfica
+✅ Diversos miolos disponíveis (parte interna)
+✅ Elástico combinando com o tema
+✅ Passante decorativo
+✅ WireO nas cores coordenadas
+✅ Tassel decorativo
+✅ Cantoneiras para proteção
+🎁 *BRINDE:* Linda bolsa para proteger sua agenda
 
-?? *CADERNOS 15x21*
+📖 *CADERNOS 15x21*
 
-*?? 100 folhas (200 p�ginas) - R$ 59,90*
-? Capa personalizada com seu tema
-? Miolo pautado padr�o  
-? WireO nas cores coordenadas
+*📚 100 folhas (200 páginas) - R$ 59,90*
+✅ Capa personalizada com seu tema
+✅ Miolo pautado padrão
+✅ WireO nas cores coordenadas
 
-*?? 200 folhas (400 p�ginas) - R$ 69,90*
-? Capa personalizada com seu tema
-? Miolo pautado padr�o
-? WireO nas cores coordenadas`,
-                    "2": `?? *PERSONALIZA��O COMPLETA*
+*📚 200 folhas (400 páginas) - R$ 69,90*
+✅ Capa personalizada com seu tema
+✅ Miolo pautado padrão
+✅ WireO nas cores coordenadas`,
+                    "2": `🎨 *PERSONALIZAÇÃO COMPLETA*
 
-? Qualquer imagem, foto ou design
-? Logos e marcas empresariais  
-? Temas personalizados (anivers�rio, casamento, formatura)
-? Cores e estilos � sua escolha
+✅ Qualquer imagem, foto ou design
+✅ Logos e marcas empresariais
+✅ Temas personalizados (aniversário, casamento, formatura)
+✅ Cores e estilos à sua escolha
 
-?? *Observa��o:* A parte interna (miolo) das agendas n�o pode ser personalizada, por�m podemos criar um modelo espec�fico para sua necessidade (consultar valores).`,
-                    "0": "????? Um de nossos atendentes lhe responder� em breve. Enquanto aguarda, visite nosso Instagram https://www.instagram.com/hzpersonalizados/ ou nosso site www.hzpersonalizados.com.br"
+📝 *Observação:* A parte interna (miolo) das agendas não pode ser personalizada, porém podemos criar um modelo específico para sua necessidade (consultar valores).`,
+                    "0": "👨‍💼 Um de nossos atendentes lhe responderá em breve. Enquanto aguarda, visite nosso Instagram https://www.instagram.com/hzpersonalizados/ ou nosso site www.hzpersonalizados.com.br"
                 }
             },
             "2": {
-                title: "? COPOS E CANECAS",
-                options: `1?? - Quais os modelos e valores
-2?? - O que posso personalizar
-0?? - Falar com um atendente`,
+                title: "☕ COPOS E CANECAS",
+                options: `1️⃣ - Quais os modelos e valores
+2️⃣ - O que posso personalizar
+0️⃣ - Falar com um atendente`,
                 submenu: {
-                    "1": `? *COPOS E CANECAS PERSONALIZADOS*
+                    "1": `☕ *COPOS E CANECAS PERSONALIZADOS*
 
-*?? Acr�licos*
-? Toda linha de copos acr�licos
-? Personaliza��o em Silk ou Impress�o Digital
-? Long Drink, Twister, Champanhe, Gin e muito mais
+*🥤 Acrílicos*
+✅ Toda linha de copos acrílicos
+✅ Personalização em Silk ou Impressão Digital
+✅ Long Drink, Twister, Champanhe, Gin e muito mais
 
-*?? Vidro*
-? Ta�as, Tulipas, Shot, Chopp
-? Personaliza��o em sublima��o
-? Qualidade premium garantida
+*🍷 Vidro*
+✅ Taças, Tulipas, Shot, Chopp
+✅ Personalização em sublimação
+✅ Qualidade premium garantida
 
-*? Canecas*
-? Canecas de Caf� e X�caras em Cer�mica
-? Personaliza��o em sublima��o
-? A partir de R$ 45,00
+*☕ Canecas*
+✅ Canecas de Café e Xícaras em Cerâmica
+✅ Personalização em sublimação
+✅ A partir de R$ 45,00
 
-?? *Para grandes quantidades, consulte condi��es especiais!*`,
-                    "2": `?? *PERSONALIZA��O TOTAL*
+💰 *Para grandes quantidades, consulte condições especiais!*`,
+                    "2": `🎨 *PERSONALIZAÇÃO TOTAL*
 
-? Qualquer tipo de arte ou design
-? Logos e marcas empresariais
-? Fotos e imagens pessoais
-? Mensagens e frases especiais
-? Cores e temas personalizados`,
-                    "0": "????? Um de nossos atendentes lhe responder� em breve. Enquanto aguarda, visite nosso Instagram https://www.instagram.com/hzpersonalizados/ ou nosso site www.hzpersonalizados.com.br"
+✅ Qualquer tipo de arte ou design
+✅ Logos e marcas empresariais
+✅ Fotos e imagens pessoais
+✅ Mensagens e frases especiais
+✅ Cores e temas personalizados`,
+                    "0": "👨‍💼 Um de nossos atendentes lhe responderá em breve. Enquanto aguarda, visite nosso Instagram https://www.instagram.com/hzpersonalizados/ ou nosso site www.hzpersonalizados.com.br"
                 }
             },
             "3": {
-                title: "?? CAIXAS CARTONADAS",
-                options: `1?? - Como s�o as caixas
-2?? - Tamanhos e valores
-0?? - Falar com um atendente`,
+                title: "📦 CAIXAS CARTONADAS",
+                options: `1️⃣ - Como são as caixas
+2️⃣ - Tamanhos e valores
+0️⃣ - Falar com um atendente`,
                 submenu: {
-                    "1": `?? *CAIXAS CARTONADAS PERSONALIZADAS*
+                    "1": `📦 *CAIXAS CARTONADAS PERSONALIZADAS*
 
-?? *Perfeitas para presentear ou embalar produtos com sofistica��o*
+🎁 *Perfeitas para presentear ou embalar produtos com sofisticação*
 
-? *Caracter�sticas:*
-? Material cartonado de alta qualidade
-? Fechamento com fita de cetim elegante
-? Personaliza��o do nome ou marca
-? Acabamento requintado e resistente
-? Design elegante e impactante
+✨ *Características:*
+✅ Material cartonado de alta qualidade
+✅ Fechamento com fita de cetim elegante
+✅ Personalização do nome ou marca
+✅ Acabamento requintado e resistente
+✅ Design elegante e impactante
 
-?? *Ideais para:*
-? Casamentos e eventos
-? Anivers�rios especiais
-? Embalagem de produtos premium
-? Brindes corporativos`,
-                    "2": `?? *TAMANHOS E VALORES PERSONALIZADOS*
+🎉 *Ideais para:*
+✅ Casamentos e eventos
+✅ Aniversários especiais
+✅ Embalagem de produtos premium
+✅ Brindes corporativos`,
+                    "2": `📏 *TAMANHOS E VALORES PERSONALIZADOS*
 
-? Todas as caixas s�o feitas sob medida
-? Tamanho personalizado conforme sua necessidade
-? Valores variam conforme:
-   � Dimens�es desejadas
-   � Cores e acabamentos
-   � Adere�os e detalhes
+✅ Todas as caixas são feitas sob medida
+✅ Tamanho personalizado conforme sua necessidade
+✅ Valores variam conforme:
+   • Dimensões desejadas
+   • Cores e acabamentos
+   • Adereços e detalhes
 
-?? *Para or�amento personalizado, fale com nossos consultores!*`,
-                    "0": "????? Um de nossos atendentes lhe responder� em breve. Enquanto aguarda, visite nosso Instagram https://www.instagram.com/hzpersonalizados/ ou nosso site www.hzpersonalizados.com.br"
+💰 *Para orçamento personalizado, fale com nossos consultores!*`,
+                    "0": "👨‍💼 Um de nossos atendentes lhe responderá em breve. Enquanto aguarda, visite nosso Instagram https://www.instagram.com/hzpersonalizados/ ou nosso site www.hzpersonalizados.com.br"
                 }
             },
             "4": {
-                title: "??? GR�FICA",
-                options: `1?? - Servi�os dispon�veis
-2?? - Valores e quantidades
-0?? - Falar com um atendente`,
+                title: "🖨️ GRÁFICA",
+                options: `1️⃣ - Serviços disponíveis
+2️⃣ - Valores e quantidades
+0️⃣ - Falar com um atendente`,
                 submenu: {
-                    "1": `??? *SERVI�OS GR�FICOS COMPLETOS*
+                    "1": `🖨️ *SERVIÇOS GRÁFICOS COMPLETOS*
 
-?? *Para seu neg�cio:*
-? Cart�es de visita
-? Panfletos e folhetos
-? Banners e displays
-? Adesivos personalizados
-? Material publicit�rio
-? Impress�es de qualidade
+📄 *Para seu negócio:*
+✅ Cartões de visita
+✅ Panfletos e folhetos
+✅ Banners e displays
+✅ Adesivos personalizados
+✅ Material publicitário
+✅ Impressões de qualidade
 
-?? *Divulgue seu neg�cio com estilo!*`,
-                    "2": `?? *VALORES PERSONALIZADOS*
+🎯 *Divulgue seu negócio com estilo!*`,
+                    "2": `💰 *VALORES PERSONALIZADOS*
 
 Os valores variam conforme:
-? Tipo de produto
-? Quantidade (tiragem)
-? Material utilizado
-? Acabamento desejado
+✅ Tipo de produto
+✅ Quantidade (tiragem)
+✅ Material utilizado
+✅ Acabamento desejado
 
-?? *Para or�amento personalizado, chame um de nossos consultores!*`,
-                    "0": "????? Um de nossos atendentes lhe responder� em breve. Enquanto aguarda, visite nosso Instagram https://www.instagram.com/hzpersonalizados/ ou nosso site www.hzpersonalizados.com.br"
+📞 *Para orçamento personalizado, chame um de nossos consultores!*`,
+                    "0": "👨‍💼 Um de nossos atendentes lhe responderá em breve. Enquanto aguarda, visite nosso Instagram https://www.instagram.com/hzpersonalizados/ ou nosso site www.hzpersonalizados.com.br"
                 }
             },
             "5": {
-                title: "?? BRINDES CORPORATIVOS",
-                options: `1?? - O que s�o os brindes
-2?? - Valores e quantidades
-0?? - Falar com um atendente`,
+                title: "🎁 BRINDES CORPORATIVOS",
+                options: `1️⃣ - O que são os brindes
+2️⃣ - Valores e quantidades
+0️⃣ - Falar com um atendente`,
                 submenu: {
-                    "1": `?? *BRINDES CORPORATIVOS ESPECIAIS*
+                    "1": `🎁 *BRINDES CORPORATIVOS ESPECIAIS*
 
-? *Lembrancinhas personalizadas para:*
-? Sua empresa e marca
-? Anivers�rios corporativos
-? Datas comemorativas
-? Eventos especiais
-? Momentos �nicos
+✨ *Lembrancinhas personalizadas para:*
+✅ Sua empresa e marca
+✅ Aniversários corporativos
+✅ Datas comemorativas
+✅ Eventos especiais
+✅ Momentos únicos
 
-?? *Traga sua ideia e n�s realizamos!*
+💡 *Traga sua ideia e nós realizamos!*
 Criamos conforme seu gosto e realidade da empresa.`,
-                    "2": `?? *VALORES PERSONALIZADOS*
+                    "2": `💰 *VALORES PERSONALIZADOS*
 
 Os valores variam conforme:
-? Tipo de produto escolhido
-? Quantidade desejada (tiragem)
-? Material utilizado
-? Personaliza��o aplicada
+✅ Tipo de produto escolhido
+✅ Quantidade desejada (tiragem)
+✅ Material utilizado
+✅ Personalização aplicada
 
-?? *Para or�amento personalizado, chame um de nossos consultores!*`,
-                    "0": "????? Um de nossos atendentes lhe responder� em breve. Enquanto aguarda, visite nosso Instagram https://www.instagram.com/hzpersonalizados/ ou nosso site www.hzpersonalizados.com.br"
+📞 *Para orçamento personalizado, chame um de nossos consultores!*`,
+                    "0": "👨‍💼 Um de nossos atendentes lhe responderá em breve. Enquanto aguarda, visite nosso Instagram https://www.instagram.com/hzpersonalizados/ ou nosso site www.hzpersonalizados.com.br"
                 }
             },
             "6": {
-                title: "?? VESTU�RIO",
-                options: `1?? - Produtos dispon�veis
-2?? - Valores e quantidades
-0?? - Falar com um atendente`,
+                title: "👕 VESTUÁRIO",
+                options: `1️⃣ - Produtos disponíveis
+2️⃣ - Valores e quantidades
+0️⃣ - Falar com um atendente`,
                 submenu: {
-                    "1": `?? *VESTU�RIO PERSONALIZADO*
+                    "1": `👕 *VESTUÁRIO PERSONALIZADO*
 
-?? *Linha completa:*
-? Camisetas personalizadas
-? Moletons e casacos
-? Bon�s e acess�rios
-? Meias personalizadas
-? Pe�as �ntimas
-? E muito mais!
+👔 *Linha completa:*
+✅ Camisetas personalizadas
+✅ Moletons e casacos
+✅ Bonés e acessórios
+✅ Meias personalizadas
+✅ Peças íntimas
+✅ E muito mais!
 
-?? *Perfeito para:*
-? Empresas e uniformes
-? Times e grupos
-? Viagens e eventos
-? Sua imagina��o sem limites!`,
-                    "2": `?? *VALORES E OP��ES*
+🎯 *Perfeito para:*
+✅ Empresas e uniformes
+✅ Times e grupos
+✅ Viagens e eventos
+✅ Sua imaginação sem limites!`,
+                    "2": `💰 *VALORES E OPÇÕES*
 
 Os valores variam conforme:
-? Tipo de produto
-? Quantidade desejada
-? Material escolhido
+✅ Tipo de produto
+✅ Quantidade desejada
+✅ Material escolhido
 
-?? *Op��o especial:*
-? Voc� pode trazer seu material
-? N�s personalizamos para voc�
-? Valores ainda mais especiais!
+💡 *Opção especial:*
+✅ Você pode trazer seu material
+✅ Nós personalizamos para você
+✅ Valores ainda mais especiais!
 
-?? *Para or�amento personalizado, chame nossos consultores!*`,
-                    "0": "????? Um de nossos atendentes lhe responder� em breve. Enquanto aguarda, visite nosso Instagram https://www.instagram.com/hzpersonalizados/ ou nosso site www.hzpersonalizados.com.br"
+📞 *Para orçamento personalizado, chame nossos consultores!*`,
+                    "0": "👨‍💼 Um de nossos atendentes lhe responderá em breve. Enquanto aguarda, visite nosso Instagram https://www.instagram.com/hzpersonalizados/ ou nosso site www.hzpersonalizados.com.br"
                 }
             },
             "7": {
-                title: "?? PAPELARIA PERSONALIZADA",
-                options: `1?? - O que � papelaria personalizada
-2?? - Valores e quantidades  
-0?? - Falar com um atendente`,
+                title: "📝 PAPELARIA PERSONALIZADA",
+                options: `1️⃣ - O que é papelaria personalizada
+2️⃣ - Valores e quantidades
+0️⃣ - Falar com um atendente`,
                 submenu: {
-                    "1": `?? *PAPELARIA PERSONALIZADA PARA EVENTOS*
+                    "1": `📝 *PAPELARIA PERSONALIZADA PARA EVENTOS*
 
-?? *Especializados em:*
-? Anivers�rios especiais
-? Casamentos e bodas
-? Eventos religiosos (batizado, primeira comunh�o)
-? Formaturas e celebra��es
+🎉 *Especializados em:*
+✅ Aniversários especiais
+✅ Casamentos e bodas
+✅ Eventos religiosos (batizado, primeira comunhão)
+✅ Formaturas e celebrações
 
-?? *Produtos:*
-? Convites elegantes
-? Convites para padrinhos
-? Save the date
-? Card�pios personalizados
-? E toda papelaria do seu evento!
+📄 *Produtos:*
+✅ Convites elegantes
+✅ Convites para padrinhos
+✅ Save the date
+✅ Cardápios personalizados
+✅ E toda papelaria do seu evento!
 
-? *Criamos e produzimos tudo aqui!*`,
-                    "2": `?? *VALORES PERSONALIZADOS*
+✨ *Criamos e produzimos tudo aqui!*`,
+                    "2": `💰 *VALORES PERSONALIZADOS*
 
 Os valores variam conforme:
-? Tipo de produto
-? Quantidade (tiragem)
-? Material utilizado
-? Acabamento e detalhes
+✅ Tipo de produto
+✅ Quantidade (tiragem)
+✅ Material utilizado
+✅ Acabamento e detalhes
 
-?? *Para or�amento personalizado, chame um de nossos consultores!*`,
-                    "0": "????? Um de nossos atendentes lhe responder� em breve. Enquanto aguarda, visite nosso Instagram https://www.instagram.com/hzpersonalizados/ ou nosso site www.hzpersonalizados.com.br"
+📞 *Para orçamento personalizado, chame um de nossos consultores!*`,
+                    "0": "👨‍💼 Um de nossos atendentes lhe responderá em breve. Enquanto aguarda, visite nosso Instagram https://www.instagram.com/hzpersonalizados/ ou nosso site www.hzpersonalizados.com.br"
                 }
             },
             "8": {
-                title: "????? FALAR COM ATENDENTE",
-                response: "????? Em breve, um de nossos consultores ir� lhe responder!"
+                title: "👨‍💼 FALAR COM ATENDENTE",
+                response: "👨‍💼 Em breve, um de nossos consultores irá lhe responder!"
             },
             "0": {
-                title: "?? CAT�LOGO GERAL",
-                response: `?? *CAT�LOGO HZ PERSONALIZADOS*
+                title: "📋 CATÁLOGO GERAL",
+                response: `📋 *CATÁLOGO HZ PERSONALIZADOS*
 
-Enviaremos nosso cat�logo completo em PDF!
+Enviaremos nosso catálogo completo em PDF!
 
-?? *Cont�m:*
-? Todos os produtos dispon�veis
-? Galeria de trabalhos realizados  
-? Tabela de pre�os atualizada
-? Informa��es de contato
+📦 *Contém:*
+✅ Todos os produtos disponíveis
+✅ Galeria de trabalhos realizados
+✅ Tabela de preços atualizada
+✅ Informações de contato
 
-?? O arquivo ser� enviado em instantes!`
+⏱️ O arquivo será enviado em instantes!`
             }
         };
 
-        // Fun��o para adicionar mensagens
+        // Fun��o para adicionar mensagens
         function addMessage(text, sender = 'bot', showTimestamp = true) {
             const messagesArea = document.getElementById('messagesArea');
             const messageDiv = document.createElement('div');
@@ -640,13 +638,16 @@ Enviaremos nosso cat�logo completo em PDF!
             messagesArea.scrollTop = messagesArea.scrollHeight;
         }
 
-        // Fun��o para mostrar indicador de digita��o
+        // Função para mostrar indicador de digitação
         function showTyping() {
             const messagesArea = document.getElementById('messagesArea');
             const typingDiv = document.createElement('div');
             typingDiv.className = 'typing-indicator';
             typingDiv.id = 'typing-indicator';
             typingDiv.innerHTML = `
+                <div class="bot-avatar">
+                    <img src="assets/logo-hz.svg" alt="HZ Personalizados" style="width: 24px; height: 24px; object-fit: contain;">
+                </div>
                 <div class="typing-dots">
                     <span></span>
                     <span></span>
@@ -657,7 +658,7 @@ Enviaremos nosso cat�logo completo em PDF!
             messagesArea.scrollTop = messagesArea.scrollHeight;
         }
 
-        // Fun��o para remover indicador de digita��o
+        // Fun��o para remover indicador de digita��o
         function hideTyping() {
             const typingIndicator = document.getElementById('typing-indicator');
             if (typingIndicator) {
@@ -665,53 +666,53 @@ Enviaremos nosso cat�logo completo em PDF!
             }
         }
 
-        // Fun��o para processar mensagens do usu�rio
+        // Fun��o para processar mensagens do usu�rio
         function processMessage(message) {
             const msg = message.trim().toLowerCase();
             const normalizedOption = message.trim();
 
-            // Verifica se � uma op��o num�rica v�lida
+            // Verifica se � uma op��o num�rica v�lida
             if (/^[0-8]$/.test(normalizedOption)) {
                 handleMenuOption(normalizedOption);
                 return;
             }
 
             // Comandos especiais
-            if (msg.includes('menu') || msg.includes('op��es') || msg.includes('opcoes') || msg === 'oi' || msg === 'ol�') {
+            if (msg.includes('menu') || msg.includes('op��es') || msg.includes('opcoes') || msg === 'oi' || msg === 'ol�') {
                 showMainMenu();
                 return;
             }
 
-            // Resposta padr�o
+            // Resposta padrão
             setTimeout(() => {
                 hideTyping();
-                addMessage(`Obrigado pela mensagem! ??
+                addMessage(`Obrigado pela mensagem! 😊
 
-Para melhor atend�-lo, digite o n�mero da op��o desejada do nosso menu de produtos.
+Para melhor atendê-lo, digite o número da opção desejada do nosso menu de produtos.
 
-?? *Nossos produtos e servi�os:*
+📋 *Nossos produtos e serviços:*
 
-1?? - Agendas e Cadernos
-2?? - Copos e Canecas
-3?? - Caixas Cartonadas
-4?? - Gr�fica
-5?? - Brindes Corporativos
-6?? - Vestu�rio
-7?? - Papelaria Personalizada
-8?? - Falar com um atendente
-0?? - Receber cat�logo geral
+1️⃣ - Agendas e Cadernos
+2️⃣ - Copos e Canecas
+3️⃣ - Caixas Cartonadas
+4️⃣ - Gráfica
+5️⃣ - Brindes Corporativos
+6️⃣ - Vestuário
+7️⃣ - Papelaria Personalizada
+8️⃣ - Falar com um atendente
+0️⃣ - Receber catálogo geral
 
-*Digite o n�mero da op��o desejada* ??`);
+*Digite o número da opção desejada* 👇`);
             }, 1500);
         }
 
-        // Fun��o para lidar com op��es do menu
+        // Fun��o para lidar com op��es do menu
         function handleMenuOption(option) {
-            console.log('Processando op��o:', option);
+            console.log('Processando op��o:', option);
 
             showTyping();
 
-            // Sistema de navega��o p�s-resposta
+            // Sistema de navega��o p�s-resposta
             if (currentSubmenu === 'navigation') {
                 setTimeout(() => {
                     hideTyping();
@@ -733,13 +734,13 @@ ${menuDataRefined[previousSubmenu].options}`);
                             return;
                         case '3':
                             // Falar com atendente
-                            addMessage(`????? *Transferindo para atendente...*
+                            addMessage(`👨‍💼 *Transferindo para atendente...*
 
-Obrigado por entrar em contato! ??`);
+Obrigado por entrar em contato! 😊`);
                             currentSubmenu = null;
                             return;
                         default:
-                            addMessage("? Op��o inv�lida. Escolha 1, 2 ou 3.");
+                            addMessage("❌ Opção inválida. Escolha 1, 2 ou 3.");
                             return;
                     }
                 }, 1200);
@@ -755,26 +756,26 @@ Obrigado por entrar em contato! ??`);
                     previousSubmenu = currentSubmenu;
                     const resposta = menuDataRefined[currentSubmenu].submenu[option];
 
-                    // Verificar se � chamada direta para atendente
+                    // Verificar se é chamada direta para atendente
                     if (option === '0') {
-                        addMessage(`????? *Transferindo para atendente...*
+                        addMessage(`👨‍💼 *Transferindo para atendente...*
 
-Obrigado por entrar em contato! ??`);
+Obrigado por entrar em contato! 😊`);
                         currentSubmenu = null;
                         return;
                     }
 
                     addMessage(resposta);
                     
-                    // Ap�s a resposta, mostrar navega��o
+                    // Após a resposta, mostrar navegação
                     setTimeout(() => {
-                        addMessage(`*Como voc� gostaria de prosseguir?*
+                        addMessage(`*Como você gostaria de prosseguir?*
 
-1?? Voltar ao menu ${menuDataRefined[previousSubmenu].title}
-2?? Voltar ao menu Principal
-3?? Falar com atendente
+1️⃣ Voltar ao menu ${menuDataRefined[previousSubmenu].title}
+2️⃣ Voltar ao menu Principal
+3️⃣ Falar com atendente
 
-*Digite a op��o desejada* ??`);
+*Digite a opção desejada* 👇`);
                         currentSubmenu = 'navigation';
                     }, 1000);
                 }, 1500);
@@ -786,29 +787,29 @@ Obrigado por entrar em contato! ??`);
                 setTimeout(() => {
                     hideTyping();
                     if (menuDataRefined[option].response) {
-                        // Op��es diretas (8 e 0)
+                        // Op��es diretas (8 e 0)
                         addMessage(menuDataRefined[option].response);
 
-                        // Para op��o 8 (falar com atendente), n�o precisa navega��o
+                        // Para op��o 8 (falar com atendente), n�o precisa navega��o
                         if (option === '8') {
                             currentSubmenu = null;
                             return;
                         }
 
-                        // Para outras respostas diretas, mostrar navega��o simplificada
+                        // Para outras respostas diretas, mostrar navegação simplificada
                         setTimeout(() => {
-                            addMessage(`*Como voc� gostaria de prosseguir?*
+                            addMessage(`*Como você gostaria de prosseguir?*
 
-2?? Voltar ao menu Principal
-3?? Falar com atendente
+2️⃣ Voltar ao menu Principal
+3️⃣ Falar com atendente
 
-*Digite a op��o desejada* ??`);
+*Digite a opção desejada* 👇`);
                             currentSubmenu = 'navigation';
                             previousSubmenu = null;
                         }, 1500);
 
                     } else if (menuDataRefined[option].submenu) {
-                        // Op��es com submenu
+                        // Op��es com submenu
                         currentSubmenu = option;
                         previousSubmenu = null;
                         addMessage(`${menuDataRefined[option].title}
@@ -819,38 +820,38 @@ ${menuDataRefined[option].options}`);
             } else {
                 setTimeout(() => {
                     hideTyping();
-                    addMessage("? Op��o inv�lida. Por favor, selecione uma das op��es dispon�veis no menu.");
+                    addMessage("❌ Opção inválida. Por favor, selecione uma das opções disponíveis no menu.");
                 }, 1000);
             }
         }
 
-        // Fun��o para mostrar menu principal
+        // Função para mostrar menu principal
         function showMainMenu() {
             currentSubmenu = null;
             showTyping();
             setTimeout(() => {
                 hideTyping();
-                addMessage(`Ol�! ?? Seja bem-vindo � *HZ Personalizados*!
+                addMessage(`Olá! 👋 Seja bem-vindo à *HZ Personalizados*!
 
 Somos especializados em produtos personalizados de alta qualidade.
 
-Por favor, selecione uma das op��es abaixo:
+Por favor, selecione uma das opções abaixo:
 
-1?? - Agendas e Cadernos
-2?? - Copos e Canecas
-3?? - Caixas Cartonadas
-4?? - Gr�fica
-5?? - Brindes Corporativos
-6?? - Vestu�rio
-7?? - Papelaria Personalizada
-8?? - Falar com um atendente
-0?? - Receber cat�logo geral
+1️⃣ - Agendas e Cadernos
+2️⃣ - Copos e Canecas
+3️⃣ - Caixas Cartonadas
+4️⃣ - Gráfica
+5️⃣ - Brindes Corporativos
+6️⃣ - Vestuário
+7️⃣ - Papelaria Personalizada
+8️⃣ - Falar com um atendente
+0️⃣ - Receber catálogo geral
 
-*Digite o n�mero da op��o desejada* ??`);
+*Digite o número da opção desejada* 👇`);
             }, 1000);
         }
 
-        // Fun��o para enviar mensagem do usu�rio
+        // Fun��o para enviar mensagem do usu�rio
         function sendUserMessage() {
             const input = document.getElementById('messageInput');
             const message = input.value.trim();
@@ -867,7 +868,7 @@ Por favor, selecione uma das op��es abaixo:
             }, 800);
         }
 
-        // Fun��o para lidar com Enter
+        // Fun��o para lidar com Enter
         function handleKeyPress(event) {
             if (event.key === 'Enter') {
                 sendUserMessage();

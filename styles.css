@@ -84,45 +84,6 @@
     box-shadow: 0 5px 20px rgba(18, 140, 126, 0.4);
 }
 
-/* Estilos para links nas mensagens */
-.message-content a {
-    color: #128c7e;
-    text-decoration: none;
-    font-weight: 500;
-    border-bottom: 1px solid #128c7e;
-    transition: all 0.2s ease;
-    display: inline-block;
-    margin: 2px 0;
-}
-
-.message-content a:hover {
-    color: #0f7a6d;
-    border-bottom-color: #0f7a6d;
-    transform: translateY(-1px);
-    text-shadow: 0 1px 2px rgba(18, 140, 126, 0.2);
-}
-
-.message-content a:active {
-    transform: translateY(0);
-}
-
-.message-content a:focus {
-    outline: 2px solid #128c7e;
-    outline-offset: 2px;
-    border-radius: 2px;
-}
-
-.message-content a[href*="instagram"] {
-    color: #e1306c;
-    border-bottom-color: #e1306c;
-}
-
-.message-content a[href*="instagram"]:hover {
-    color: #c13584;
-    border-bottom-color: #c13584;
-    text-shadow: 0 1px 2px rgba(225, 48, 108, 0.2);
-}
-
 .message-input:focus {
     box-shadow: 0 0 0 3px rgba(18, 140, 126, 0.1);
     border: 2px solid #128c7e;
