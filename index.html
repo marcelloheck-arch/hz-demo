@@ -526,6 +526,16 @@ Enviaremos nosso catálogo completo em PDF!
             // Regex para encontrar URLs
             const urlRegex = /(https?:\/\/[^\s]+)/g;
             return text.replace(urlRegex, (url) => {
+                // Tratamento especial para links do Instagram
+                if (url.includes('instagram.com')) {
+                    // Extrai o username do link
+                    const match = url.match(/instagram\.com\/([^\/\?]+)/);
+                    if (match) {
+                        const username = match[1];
+                        // Usa intent do Instagram para forçar abertura do perfil correto
+                        return `<a href="https://www.instagram.com/${username}/" target="_blank" rel="noopener noreferrer" onclick="window.open('instagram://user?username=${username}', '_system'); return false;" style="color: #128c7e; text-decoration: underline; font-weight: 500;">${url}</a>`;
+                    }
+                }
                 return `<a href="${url}" target="_blank" rel="noopener noreferrer" style="color: #128c7e; text-decoration: underline; font-weight: 500;">${url}</a>`;
             });
         }
