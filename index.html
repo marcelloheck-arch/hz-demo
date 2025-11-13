@@ -230,12 +230,30 @@
             .chat-container {
                 width: 100%;
                 height: 100vh;
+                height: 100dvh; /* Dynamic viewport height para smartphones modernos */
                 border-radius: 0;
                 max-width: none;
             }
             
             .chat-header {
                 border-radius: 0;
+            }
+            
+            .messages-area {
+                flex: 1;
+                min-height: 0; /* Importante para flexbox funcionar corretamente */
+            }
+            
+            .input-area {
+                flex-shrink: 0; /* Impede que a área de input seja comprimida */
+            }
+        }
+        
+        /* Ajuste específico para smartphones com telas grandes (acima de 6 polegadas) */
+        @media (max-width: 768px) and (min-height: 700px) {
+            .chat-container {
+                height: 100vh;
+                height: 100dvh;
             }
         }
 
@@ -380,7 +398,7 @@
 ✅ Cores e estilos à sua escolha
 
 📝 *Obs:* A parte interna (miolo) das agendas não pode ser personalizada, porém podemos criar um modelo específico para sua necessidade (consultar valores)`,
-                    "0": "Em breve um de nossos atendentes irá lhe responder!"
+                    "0": "Em breve um de nossos Consultores irá lhe atender!\n\nEnquanto espera que tal visitar nosso Instagram ou nosso Site:\n📱 https://www.instagram.com/hzpersonalizados/\n🌐 hzpersonalizados.com.br"
                 }
             },
             "2": {
@@ -408,7 +426,7 @@
 
 💰 *Para grandes quantidades, consulte condições especiais!*`,
                     "2": `É possível personalizar com praticamente todo tipo de arte, logo marca, fotos, mensagens e muito mais!`,
-                    "0": "Em breve um de nossos atendentes irá lhe responder!"
+                    "0": "Em breve um de nossos Consultores irá lhe atender!\n\nEnquanto espera que tal visitar nosso Instagram ou nosso Site:\n📱 https://www.instagram.com/hzpersonalizados/\n🌐 hzpersonalizados.com.br"
                 }
             },
             "3": {
@@ -426,7 +444,7 @@ Características do Produto:
 - Ideal para casamentos, aniversários, ou para embalar produtos com sofisticação
 - Design simples, mas impactante, que combina com diversos estilos de presente`,
                     "2": "Fazemos todas as nossas caixas com tamanho personalizado ao gosto e necessidade do cliente. Os valores variam de acordo com tamanho, cores e adereços.",
-                    "0": "Em breve um de nossos atendentes irá lhe responder!"
+                    "0": "Em breve um de nossos Consultores irá lhe atender!\n\nEnquanto espera que tal visitar nosso Instagram ou nosso Site:\n📱 https://www.instagram.com/hzpersonalizados/\n🌐 hzpersonalizados.com.br"
                 }
             },
             "4": {
@@ -437,7 +455,7 @@ Características do Produto:
                 submenu: {
                     "1": "Trabalhamos com toda a linha gráfica para divulgação do seu negócio. Cartões, panfletos, banners, adesivos e muito mais.",
                     "2": "Os valores variam de acordo com o produto, tiragem e material usado. Para fazer um orçamento personalizado, chame um de nossos consultores.",
-                    "0": "Em breve um de nossos atendentes irá lhe responder!"
+                    "0": "Em breve um de nossos Consultores irá lhe atender!\n\nEnquanto espera que tal visitar nosso Instagram ou nosso Site:\n📱 https://www.instagram.com/hzpersonalizados/\n🌐 hzpersonalizados.com.br"
                 }
             },
             "5": {
@@ -448,7 +466,7 @@ Características do Produto:
                 submenu: {
                     "1": "Sabe aquelas lembrancinhas para sua empresa, aniversários, datas comemorativas e outros momentos especiais? Nós fazemos para você. Traga sua ideia e nós realizamos, mediante seu gosto e a realidade da sua empresa.",
                     "2": "Os valores variam de acordo com o produto, tiragem e material usado. Para fazer um orçamento personalizado, chame um de nossos consultores.",
-                    "0": "Em breve um de nossos atendentes irá lhe responder!"
+                    "0": "Em breve um de nossos Consultores irá lhe atender!\n\nEnquanto espera que tal visitar nosso Instagram ou nosso Site:\n📱 https://www.instagram.com/hzpersonalizados/\n🌐 hzpersonalizados.com.br"
                 }
             },
             "6": {
@@ -465,7 +483,7 @@ Fazemos também moletons, bonés, meias, peças íntimas e toda uma variedade de
 Além disso, existe a possibilidade de você trazer o material para nós personalizarmos para você.
 
 Para fazer um orçamento personalizado, chame um de nossos consultores.`,
-                    "0": "Em breve um de nossos atendentes irá lhe responder!"
+                    "0": "Em breve um de nossos Consultores irá lhe atender!\n\nEnquanto espera que tal visitar nosso Instagram ou nosso Site:\n📱 https://www.instagram.com/hzpersonalizados/\n🌐 hzpersonalizados.com.br"
                 }
             },
             "7": {
@@ -476,7 +494,7 @@ Para fazer um orçamento personalizado, chame um de nossos consultores.`,
                 submenu: {
                     "1": "Aniversários, casamentos, eventos religiosos... Toda a parte que envolve papelaria para esses eventos, nós criamos e fazemos aqui. Convites para casamento, convites para padrinhos e muito mais.",
                     "2": "Os valores variam de acordo com o produto, tiragem e material usado. Para fazer um orçamento personalizado, chame um de nossos consultores.",
-                    "0": "Em breve um de nossos atendentes irá lhe responder!"
+                    "0": "Em breve um de nossos Consultores irá lhe atender!\n\nEnquanto espera que tal visitar nosso Instagram ou nosso Site:\n📱 https://www.instagram.com/hzpersonalizados/\n🌐 hzpersonalizados.com.br"
                 }
             },
             "8": {
@@ -634,7 +652,11 @@ ${menuDataRefined[previousSubmenu].options}`);
                             // Falar com atendente
                             addMessage(`👨‍💼 *Transferindo para atendente...*
 
-Obrigado por entrar em contato! 😊`);
+Em breve um de nossos Consultores irá lhe atender!
+
+Enquanto espera que tal visitar nosso Instagram ou nosso Site:
+📱 https://www.instagram.com/hzpersonalizados/
+🌐 hzpersonalizados.com.br`);
                             currentSubmenu = null;
                             return;
                         default:
